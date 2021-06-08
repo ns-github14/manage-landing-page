@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="./css/main.css" />
+  <title>Frontend Mentor | Manage landing page</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <img class="logo" src="./images/logo.svg" alt="manage" />
+
+    <nav>
+      <ul>
+        <li>Product</li>
+        <li>About Us</li>
+        <li>Careers</li>
+        <li>Community</li>
+      </ul>
+    </nav>
+
+    <button>Get Started</button>
+  </header>
+
+  <section class="intro">
+    <div class="right-section1">
+      <img src="./images/illustration-intro.svg" alt="">
+    </div>
+
+    <div class="left-section1">
+      <div class="title">
+        Bring everyone together to build better products.
+      </div>
+
+      <div class="subtitle">
+        Manage makes it simple for software teams to plan day-to-day
+        tasks while keeping the larger team goals in view.
+      </div>
+
+      <button>Get Started</button>
+    </div>
+  </section>
+
+  <section class="desc">
+    <div class="left-section2">
+      <div class="title">
+        What’s different about Manage?
+      </div>
+
+      <div class="subtitle">
+        Manage provides all the functionality your team needs, without
+        the complexity. Our software is tailor-made for modern digital
+        product teams.
+      </div>
+
+    </div>
+    <div class="right-section2">
+      <div class="points">
+        <div class="numbering">01</div>
+        <div class="title">
+          Track company-wide progress
+        </div>
+      </div>
+      <div class="subtitle">
+        See how your day-to-day tasks fit into the wider vision. Go from
+        tracking progress at the milestone level all the way done to the
+        smallest of details. Never lose sight of the bigger picture again.
+      </div>
+
+      <div class="points">
+        <div class="numbering">02</div>
+        <div class="title">
+          Advanced built-in reports
+        </div>
+      </div>
+      <div class="subtitle">
+        Set internal delivery estimates and track progress toward company
+        goals. Our customisable dashboard helps you build out the reports
+        you need to keep key stakeholders informed.
+      </div>
+
+      <div class="points">
+        <div class="numbering">03</div>
+        <div class="title">
+          Everything you need in one place
+        </div>
+      </div>
+      <div class="subtitle">
+        Stop jumping from one service to another to communicate, store files,
+        track tasks and share documents. Manage offers an all-in-one team
+        productivity solution.
+      </div>
+    </div>
+  </section>
+
+  <!--
+  <div class="testimonials">
+    <div class="title">
+      What they’ve said
+    </div>
+    <div class="carousel-container">
+      <div class="carousel-inner">
+        <div class="track">
+          <div class="card-container">
+            <div class="card">
+              <img src="./images/avatar-anisha.png" alt="">
+              <div class="title">Anisha Li</div>
+              <div class="subtitle">
+                “Manage has supercharged our team’s workflow. The ability to maintain
+                visibility on larger milestones at all times keeps everyone motivated.”
+              </div>
+            </div>
+          </div>
+          <div class="card-container">
+            <div class="card">
+              <img src="./images/avatar-ali.png" alt="">
+              <div class="title">Ali Bravo</div>
+              <div class="subtitle">
+                “We have been able to cancel so many other subscriptions since using
+                Manage. There is no more cross-channel confusion and everyone is much
+                more focused.”
+              </div>
+            </div>
+          </div>
+          <div class="card-container">
+            <div class="card">
+              <img src="./images/avatar-richard.png" alt="">
+              <div class="title">Richard Watts</div>
+              <div class="subtitle">
+                “Manage allows us to provide structure and process. It keeps us organized
+                and focused. I can’t stop recommending them to everyone I talk to!”
+              </div>
+            </div>
+          </div>
+          <div class="card-container">
+            <div class="card">
+              <img src="./images/avatar-shanai.png" alt="">
+              <div class="title">Shanai Gough</div>
+              <div class="subtitle">
+                “Their software allows us to track, manage and collaborate on our projects
+                from anywhere. It keeps the whole team in-sync without being intrusive.”
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nav">
+        <button class="prev">
+          <i class="arrow left"></i>
+        </button>
+        <button class="next">
+          <i class="arrow right"></i>
+        </button>
+      </div>
+    </div>
+
+  </div>
+-->
+  <script>
+    const prev = document.querySelector('.prev');
+    const next = document.querySelector('.next');
+
+    const track = document.querySelector('.track');
+
+    let carouselWidth = document.querySelector('.carousel-container').offsetWidth;
+
+    window.addEventListener('resize', () => {
+      carouselWidth = document.querySelector('.carousel-container').offsetWidth;
+    })
+
+    let index = 0;
+
+    next.addEventListener('click', () => {
+      index++;
+      prev.classList.add('show');
+      track.style.transform = `translateX(-${index * carouselWidth}px)`;
+
+      if (track.offsetWidth - (index * carouselWidth) < carouselWidth) {
+        next.classList.add('hide');
+      }
+    })
+
+    prev.addEventListener('click', () => {
+      index--;
+      next.classList.remove('hide');
+      if (index === 0) {
+        prev.classList.remove('show');
+      }
+      track.style.transform = `translateX(-${index * carouselWidth}px)`;
+    })
+
+  </script>
+
+  <section class="prefooter">
+    <div class="title">
+      Simplify how your team works today.
+    </div>
+    <button>Get Started</button>
+  </section>
+
+  <footer>
+    <div class="inbox">
+      <input type="text" required placeholder="Updates in your inbox…" name="" id="" />
+      <button>Go</button>
+    </div>
+
+    <div class="links">
+      <div class="section2">
+        Home<br />
+        Pricing<br />
+        Products<br />
+        About Us<br />
+      </div>
+
+      <div class="section2">
+        Careers<br />
+        Community<br />
+        Privacy Policy<br />
+      </div>
+    </div>
+
+    <div class="social-media-icons">
+      <img src="./images/icon-facebook.svg" alt="">
+      <img src="./images/icon-youtube.svg" alt="">
+      <img src="./images/icon-twitter.svg" alt="">
+      <img src="./images/icon-pinterest.svg" alt="">
+      <img src="./images/icon-instagram.svg" alt="">
+    </div>
+
+    <img class="logo" src="./images/logo-footer.svg" alt="">
+
+    <div class="subtitle">
+      Copyright 2020. All Rights Reserved
+    </div>
+  </footer>
+
+  <div class="attribution">
+    Challenge by <a style="color: white; font-weight: 600;" href="https://www.frontendmentor.io?ref=challenge"
+      target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#" style="color: white; font-weight: 600;">Neelanshi Sharma</a>.
+  </div>
+</body>
+
+</html>
